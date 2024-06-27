@@ -4,9 +4,9 @@ resource "random_string" "random" {
   upper   = false
 }
 
-#checkov:skip=CKV2_AZURE_40
-#checkov:skip=CKV2_AZURE_41
 resource "azurerm_storage_account" "sa" {
+  #checkov:skip=CKV2_AZURE_40
+  #checkov:skip=CKV2_AZURE_41
   name                     = (var.name == null ? random_string.random.result : var.name)
   resource_group_name      = var.resource_group_name
   location                 = var.location
